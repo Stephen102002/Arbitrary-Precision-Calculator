@@ -1,0 +1,37 @@
+NAME : Akhil T Stephen 
+START_DATE : 06-02-2025
+END_DATE : 16-02-2025
+TITLE : Arbitrary Precision Calculator(APC)
+
+OVERVIEW:
+The Arbitrary Precision Calculator is a C-based command-line application that performs arithmetic 
+operations on arbitrarily large integers exceeding standard data type limits. It uses doubly linked 
+lists to store individual digits, enabling addition, subtraction, multiplication, and division of 
+numbers of any magnitude with proper sign handling.
+
+FEATURES:
+* Support for four basic arithmetic operations: +, -, x, /
+* Handles numbers of unlimited size (limited only by available memory)
+* Proper handling of negative numbers and mixed sign operations
+* Efficient digit-by-digit computation using linked list data structure
+* Removes leading zeros from results for clean output
+
+USAGE:
+  Command: ./a.out <number1> <operator> <number2>
+  Example: ./a.out 123456789012345678901234567890 + 987654321098765432109876543210
+  Result: 1111111110111111111011111111100
+  
+IMPLEMENTATION:
+The project uses a Doubly Linked List (Dlist) where each node stores a single digit (0-9). Numbers are 
+stored with the least significant digit at the tail, allowing efficient right-to-left arithmetic 
+operations with proper carry/borrow propagation. Each operation (addition, subtraction, multiplication,
+division) implements the standard mathematical algorithm adapted for linked list representation.
+
+FILE STRUCTURE:
+* main.c - Entry point, argument parsing, operator routing, and utility functions (digit_to_list, insert, print_list, larger)
+* apc.h - Header file with Dlist structure definition and function prototypes
+* addition.c - Implements addition with carry handling
+* subtraction.c - Implements subtraction with borrow mechanism
+* multiplication.c - Implements multiplication using partial products
+* division.c - Implements division via repeated subtraction
+* function.c - Implements the core helper and arithmetic functions for performing arbitrary-precision calculations using linked lists.
